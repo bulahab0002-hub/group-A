@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الحضور - الأمن السيبراني</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="college-logo">
+                <img src="../icon.jpg" alt="شعار كلية التقنية الشمالية">
+            </div>
+            
+            <a href="../index.html" class="back-btn">← الرئيسية</a>
+            <h1>تسجيل حضور الطلاب</h1>
+            <p>كروب A - الأمن السيبراني</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="controls">
+                <div class="date-info">
+                    <div class="date-display" id="dateDisplay"></div>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-value" id="totalCount">0</span>
+                            <span class="stat-label">إجمالي</span>
+                        </div>
+                        <div class="stat present">
+                            <span class="stat-value" id="presentCount">0</span>
+                            <span class="stat-label">حاضر</span>
+                        </div>
+                        <div class="stat absent">
+                            <span class="stat-value" id="absentCount">0</span>
+                            <span class="stat-label">غائب</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="saveBtn">💾 حفظ إلى Excel</button>
+                    <button class="btn btn-secondary" id="newDayBtn">🔄 يوم جديد</button>
+                    <button class="btn btn-success" id="addBtn">➕ إضافة</button>
+                    <button class="btn btn-danger" id="removeBtn">➖ حذف</button>
+                </div>
+            </div>
+            
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">الجميع</button>
+                <button class="filter-btn" data-filter="present">الحاضرون</button>
+                <button class="filter-btn" data-filter="absent">الغائبون</button>
+            </div>
+            
+            <div class="students-list" id="studentsList">
+            </div>
+        </div>
+        
+        <footer>
+    <div class="footer-content">
+        <div class="footer-line">
+            <span class="footer-label">الكلية:</span>
+            <span class="footer-value">كلية التقنية الشمالية</span>
+        </div>
+        <div class="footer-line">
+            <span class="footer-label">القسم:</span>
+            <span class="footer-value">هندسة الأمن السيبراني</span>
+        </div>
+        <div class="footer-line">
+            <span class="footer-label">المرحلة:</span>
+            <span class="footer-value">الثانية</span>
+        </div>
+        <div class="footer-line">
+            <span class="footer-label">المجموعة:</span>
+            <span class="footer-value">كروب A</span>
+        </div>
+    </div>
+</footer>
+    </div>
+    <div class="modal" id="addModal">
+        <div class="modal-content">
+            <h3>إضافة طالب جديد</h3>
+            <input type="text" id="studentNameInput" placeholder="اسم الطالب الكامل" class="modal-input">
+            <div class="modal-actions">
+                <button class="btn btn-success" id="confirmAddBtn">إضافة</button>
+                <button class="btn btn-cancel" id="cancelAddBtn">إلغاء</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="removeModal">
+        <div class="modal-content">
+            <h3>حذف طالب</h3>
+            <select id="studentSelect" class="modal-input">
+                <option value="">اختر طالباً للحذف</option>
+            </select>
+            <div class="modal-actions">
+                <button class="btn btn-danger" id="confirmRemoveBtn">حذف</button>
+                <button class="btn btn-cancel" id="cancelRemoveBtn">إلغاء</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- مكتبة SheetJS لإنشاء ملفات Excel -->
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
